@@ -1,0 +1,44 @@
+﻿using System;
+
+namespace ConsoleApp87
+{
+    public class indexer2
+    {
+        byte[] empage = new byte[3];
+        public byte this[int i]
+        {
+            get
+            {
+                return empage[i];
+            }
+            set
+            {
+                while (value < 18 || value > 60)
+                {
+                    Console.WriteLine("Enter age between 18 and 60:");
+                    value = byte.Parse(Console.ReadLine());
+                }
+                empage[i] = value;
+            }
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                indexer2 obj = new indexer2();
+                Console.WriteLine("Enter employee ages:");
+                for (int i = 0; i < obj.empage.Length; i++)
+                {
+                    obj[i] = byte.Parse(Console.ReadLine());
+                }
+                Console.WriteLine("Employee ages are:");
+                for (int i = 0; i < obj.empage.Length; i++)
+                {
+                    Console.WriteLine(obj[i]);
+                }
+                Console.ReadLine();
+            }
+        }
+    }
+}
